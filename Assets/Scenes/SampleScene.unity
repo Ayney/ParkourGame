@@ -480,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 10
-  jumpForce: 250
+  jumpForce: 500
   groundPos: {fileID: 326670418}
   groundMask:
     serializedVersion: 2
