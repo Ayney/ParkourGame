@@ -694,6 +694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
+  startingCheckpoint: 2
+  IsGoingClockwise: 0
   Checkpoints:
   - {fileID: 1286611780}
   - {fileID: 1700557753}
@@ -1983,6 +1985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
+  startingCheckpoint: 0
+  IsGoingClockwise: 1
   Checkpoints:
   - {fileID: 1437739031}
   - {fileID: 1710118385}

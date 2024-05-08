@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] float Speed; 
+    [SerializeField] float Speed;
+    [SerializeField] int startingCheckpoint;
     int checkpointToGoTo = 0;
-    bool IsGoingClockwise = true;
+
+    [SerializeField] bool IsGoingClockwise = true;
     Rigidbody rb => GetComponent<Rigidbody>();
 
     [SerializeField] Transform[] Checkpoints;
@@ -20,7 +22,9 @@ public class MovingPlatform : MonoBehaviour
 
     private void Start()
     {
-        SetMoveDirectionToCheckpoint(1);
+        transform.position = Checkpoints[startingCheckpoint].position;
+        checkpointToGoTo = startingCheckpoint;
+        CheckAndSetNextCheckpoint();
     }
     private void Update()
     {
