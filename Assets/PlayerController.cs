@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 300f;
     [SerializeField] Transform groundPos;
     [SerializeField] LayerMask groundMask;
+    [SerializeField] LayerMask movingGroundMask;
     bool IsGrounded()
     {
         if (Physics.CheckSphere(groundPos.position, 0.01f, groundMask)) return true;
@@ -79,8 +80,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 MoveVec = moveVector.x * transform.right + moveVector.z * transform.forward;
         rb.velocity = new Vector3(MoveVec.normalized.x * (IsRunning? runSpeed : walkSpeed), rb.velocity.y, MoveVec.normalized.z * (IsRunning ? runSpeed : walkSpeed));
-        //rb.AddForce(MoveVec * playerSpeed, ForceMode.Force);
     }
+
     void Jump()
     {
         if(moveVector.y > 0 && IsGrounded())
