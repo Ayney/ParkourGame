@@ -2,27 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointManager : MonoBehaviour
+namespace Managers
 {
-    public static CheckpointManager Instance;
-
-    [SerializeField] Transform PlayerTransform;
-    [SerializeField] Transform StartingPoint;
-
-    public Transform CurrentCheckpoint;
-
-    private void Awake()
+    public class CheckpointManager : MonoBehaviour
     {
-        if (Instance == null) Instance = this;
-        else if (Instance != null && Instance != this) Destroy(this);
+        public static CheckpointManager Instance;
+
+        [SerializeField] Transform PlayerTransform;
+        [SerializeField] Transform StartingPoint;
+        [SerializeField] Vector3 Offset;
+        public Transform CurrentCheckpoint;
+
+        private void Awake()
+        {
+            if (Instance == null) Instance = this;
+            else if (Instance != null && Instance != this) Destroy(this);
+        }
+
+        private void Start()
+        {
+            CurrentCheckpoint = StartingPoint;
+        }
+        public void TeleportPlayerToLastCheckpoint()
+        {
+            PlayerTransform.position = CurrentCheckpoint.position + Offset;
+        }
+
+        public void ChangeCurrentCheckpoint(Transform newCheckpoint)
+        {
+            CurrentCheckpoint = newCheckpoint;
+            GlobalEvents.Instance.OnNewCheckpoint?.Invoke();
+        }
     }
 
-    private void Start()
-    {
-        CurrentCheckpoint = StartingPoint;
-    }
-    public void TeleportPlayerToLastCheckpoint()
-    {
-        PlayerTransform.position = CurrentCheckpoint.position;
-    }
 }
