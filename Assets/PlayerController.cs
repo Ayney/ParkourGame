@@ -100,7 +100,7 @@ namespace Player
 
             CamRot.y = Mathf.Clamp(CamRot.y, -80, 80);
             Camera.main.transform.localRotation = Quaternion.Euler(CamRot.y, 0, 0);
-            transform.localRotation = Quaternion.Euler(0, CamRot.x, 0);
+            transform.rotation = Quaternion.Euler(0, CamRot.x, 0); // changed to rotation only, cause localrotation causes issues when setting player parent
         }
 
         IEnumerator SubscribeToEventsDelayed(float delay)

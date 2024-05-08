@@ -24,12 +24,14 @@ namespace Obstacles
 
         private void Start()
         {
+            if (Checkpoints.Length <= 0) return;
             transform.position = Checkpoints[startingCheckpoint].position;
             checkpointToGoTo = startingCheckpoint;
             CheckAndSetNextCheckpoint();
         }
         private void Update()
         {
+            if (Checkpoints.Length <= 0) return;
             if (DistanceToNextCheckpoint() > 0.2f) transform.Translate(Speed * Time.deltaTime * Direction);
             else CheckAndSetNextCheckpoint();
         }
@@ -51,7 +53,8 @@ namespace Obstacles
 
         private void OnTriggerEnter(Collider other)
         {
-            other.transform.root.SetParent(transform);
+            other.transform.root.SetParent(transform, true);
+
         }
 
         private void OnTriggerExit(Collider other)
