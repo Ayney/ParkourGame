@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
-  startingCheckpoint: 0
+  startingCheckpoint: 1
   IsGoingClockwise: 0
   Checkpoints:
   - {fileID: 118438564}

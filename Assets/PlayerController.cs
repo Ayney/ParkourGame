@@ -20,7 +20,7 @@ namespace Player
         [SerializeField] LayerMask movingGroundMask;
         bool IsGrounded()
         {
-            if (Physics.CheckSphere(groundPos.position, 0.01f, groundMask)) return true;
+            if (Physics.CheckSphere(groundPos.position, 0.1f, groundMask)) return true;
             else return false;
         }
 
