@@ -7,9 +7,9 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        private PlayerInputClass input = null;
+        public PlayerInputClass input = null;
         Rigidbody rb => GetComponent<Rigidbody>();
-        Vector3 moveVector;
+        [HideInInspector] public Vector3 moveVector;
 
         [Header("Movement Values")]
         [SerializeField] float walkSpeed = 5f;
@@ -25,6 +25,7 @@ namespace Player
         }
 
         public bool IsRunning = false;
+        public bool IsHoldingOnRope = false;
 
         [Header("Rotation Values")]
         [SerializeField] float MouseSens = 150f;
@@ -70,11 +71,12 @@ namespace Player
         // Update is called once per frame
         private void Update()
         {
+            
             Rotate();
         }
         void FixedUpdate()
         {
-            Move();
+            if (!IsHoldingOnRope)Move();
             Jump();
         }
 
