@@ -307,7 +307,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 241601144}
   - component: {fileID: 241601143}
   m_Layer: 9
-  m_Name: Segment 5 (3)
+  m_Name: Segment 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,7 +625,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.6999996, z: 0}
+  m_ConnectedAnchor: {x: 0, y: -0.5999999, z: 0}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -660,9 +660,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241601141}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -677,7 +677,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &241601145
 BoxCollider:
@@ -692,7 +692,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 249177949}
   - component: {fileID: 249177948}
   m_Layer: 9
-  m_Name: Segment 5 (2)
+  m_Name: Segment 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,9 +833,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249177946}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -850,7 +850,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &249177950
 BoxCollider:
@@ -865,7 +865,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1150,9 +1150,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411884133}
+  - component: {fileID: 411884135}
   - component: {fileID: 411884132}
   - component: {fileID: 411884134}
-  - component: {fileID: 411884135}
+  - component: {fileID: 411884136}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -1195,7 +1196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411884131}
   m_LocalRotation: {x: -0, y: 0.022163851, z: -0, w: 0.99975437}
-  m_LocalPosition: {x: -13.6, y: 4.4700003, z: 0.4}
+  m_LocalPosition: {x: 14.448249, y: 2.66, z: -2.6174622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1218,11 +1219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aee6b9662097f94782dac8d0ed33935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveVector: {x: 0, y: 0, z: 0}
   walkSpeed: 5
   runSpeed: 10
   jumpForce: 500
-  swingSpeed: 100
-  afterSwingJumpForce: 0
   groundPos: {fileID: 326670418}
   groundMask:
     serializedVersion: 2
@@ -1335,6 +1335,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &411884136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411884131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d754ca40b54ef419b0d4ffd38e1707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingSpeed: 50
+  afterSwingJumpForce: 400
 --- !u!1 &415273763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1484,7 @@ Transform:
   m_Children:
   - {fileID: 2040292170}
   - {fileID: 200833077}
+  - {fileID: 481860615}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1596,8 +1611,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481860614}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.85, y: 7.6, z: 1.88}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29.569477, y: 1.48, z: -3.5113688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1609,8 +1624,8 @@ Transform:
   - {fileID: 1463016778}
   - {fileID: 249177947}
   - {fileID: 241601142}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 460569088}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &481860616
 Rigidbody:
@@ -1839,9 +1854,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651715167}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1856,7 +1871,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &651715169
 HingeJoint:
@@ -1910,7 +1925,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -2175,7 +2190,7 @@ GameObject:
   - component: {fileID: 806097217}
   - component: {fileID: 806097218}
   - component: {fileID: 806097219}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Rope Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3088,9 +3103,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290625685}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3105,7 +3120,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &1290625687
 HingeJoint:
@@ -3159,7 +3174,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -3934,7 +3949,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -4000,9 +4015,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441864655}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4017,7 +4032,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &1441864661
 HingeJoint:
@@ -4073,7 +4088,7 @@ GameObject:
   - component: {fileID: 1463016773}
   - component: {fileID: 1463016774}
   m_Layer: 9
-  m_Name: Segment 5 (1)
+  m_Name: Segment 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4087,9 +4102,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463016772}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4104,7 +4119,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &1463016774
 HingeJoint:
@@ -4158,7 +4173,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -4704,9 +4719,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893259698}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4721,7 +4736,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &1893259702
 BoxCollider:
@@ -4736,7 +4751,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -4823,9 +4838,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894379651}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4840,7 +4855,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &1894379653
 HingeJoint:
@@ -4894,7 +4909,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

@@ -28,7 +28,7 @@ namespace Player
         public void OnHoldRopeCalled(InputAction.CallbackContext value)
         {
             Debug.Log("HOLD ROPE COALD");
-            if (PlayerControllerCS.IsHoldingOnRope) DettachFromRope();
+            if (PlayerControllerCS.IsHoldingOnRope) DetachFromRope();
             else CheckForRope();
         }
         public void OnHoldRopeCancelled(InputAction.CallbackContext value)
@@ -60,12 +60,11 @@ namespace Player
         }
         void Swing()
         {
-            if (!RopeTrigger.ObjectWithinRange) DettachFromRope();
-            Vector3 MoveVec = PlayerControllerCS.moveVector.x * transform.right + PlayerControllerCS.moveVector.z * transform.forward;
-            RopeAttachedRB.AddRelativeForce(MoveVec.normalized * swingSpeed);
+            if (!RopeTrigger.ObjectWithinRange) DetachFromRope();
+            RopeAttachedRB.AddRelativeForce(RopeAttachedRB.transform.right * PlayerControllerCS.moveVector.z * swingSpeed);
 
         }
-        void DettachFromRope()
+        void DetachFromRope()
         {
             RopeAttachedRB = null;
             PlayerCJ.connectedBody = null;
