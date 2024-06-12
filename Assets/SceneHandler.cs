@@ -17,7 +17,6 @@ public class SceneHandler : MonoBehaviour
     public LightingSettings NextSceneLightingSettings;
 
     //public bool IsLoadingScreenPresent => FindObjectOfType<LoadingSceneHandler>();
-
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(this);
