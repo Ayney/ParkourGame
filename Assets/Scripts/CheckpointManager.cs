@@ -22,6 +22,7 @@ namespace Managers
         private void Start()
         {
             CurrentCheckpoint = StartingPoint;
+            TeleportPlayerToLastCheckpoint();
         }
         public void TeleportPlayerToLastCheckpoint()
         {

@@ -18,6 +18,8 @@ namespace Managers
         public UnityEvent OnCursorUnlocked;
         public UnityEvent OnPlayerDeath;
         public UnityEvent OnNewCheckpoint;
+
+        public UnityEvent OnGettingToEnd;
     }
 
 }
