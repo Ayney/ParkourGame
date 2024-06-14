@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4977108246408471374}
   - component: {fileID: 8398553327229868658}
   - component: {fileID: 7297386772571143512}
+  - component: {fileID: 1187586692996637943}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -291,6 +292,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingSpeed: 50
   afterSwingJumpForce: 400
+--- !u!114 &1187586692996637943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158208716002255004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649ce14f7008c7e4ea8b5bcc55e866ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathHeight: -40
 --- !u!1 &1519865782675661196
 GameObject:
   m_ObjectHideFlags: 0
