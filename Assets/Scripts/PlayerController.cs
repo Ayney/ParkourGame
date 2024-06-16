@@ -15,12 +15,13 @@ namespace Player
         [SerializeField] float walkSpeed = 5f;
         [SerializeField] float runSpeed = 10f;
         [SerializeField] float jumpForce = 300f;
+        [SerializeField] float RaycastToGroundDist;
         [SerializeField] Transform groundPos;
         [SerializeField] LayerMask groundMask;
         [SerializeField] LayerMask movingGroundMask;
         bool IsGrounded()
         {
-            if (Physics.CheckSphere(groundPos.position, 0.1f, groundMask)) return true;
+            if (Physics.CheckSphere(groundPos.position, RaycastToGroundDist, groundMask)) return true;
             else return false;
         }
 
